@@ -1,0 +1,87 @@
+---
+// Define the array of projects directly in the frontmatter script.
+const otherprojects = [
+  {
+    "url": "https://medium.com/@shahnawaaz.shaikh/climbing-wheeler-peak-a-journey-of-personal-transformation-and-professional-growth-2bbbd7d5ae7e",
+    "title": "Climbing Wheeler Peak: A Hero's Journey of Personal Transformation and Professional Growth",
+    "description": "A transformative journey to the summit of Wheeler Peak parallels the challenges and triumphs of project management, offering lessons in preparation, adaptability, and perseverance. Discover how this adventure inspired a renewed commitment to leading teams with resilience and optimism."
+  },
+  {
+    "url": "https://medium.com/@shahnawaaz.shaikh/how-to-talk-to-anyone-at-work-book-review-b5463d55fbaa",
+    "title": "How to Talk to Anyone at Work: Book Review",
+    "description": "A witty guide to mastering office conversations, turning awkward silences into networking opportunities with humor and practical tips."
+  },
+  {
+    "url": "https://medium.com/@shahnawaaz.shaikh/7-core-ux-principles-every-designer-should-know-0c0aa67e6101",
+    "title": "7 Core UX Principles Every Designer Should Know",
+    "description": "Learn the fundamental UX principles that every designer needs to create exceptional user experiences."
+  },
+  {
+    "url": "https://medium.com/@shahnawaaz.shaikh/mastering-jira-top-10-tips-and-tricks-for-project-managers-69483da59bb7",
+    "title": "Mastering Jira: Top 10 Tips and Tricks for Project Managers",
+    "description": "Discover essential tips and tricks to master Jira and streamline your project management process."
+  }
+  // Add more projects as needed...
+];
+
+// Function to calculate `data-aos-duration` based on index
+function calculateAosDuration(index) {
+  return 1500 + index * 500; // Example: Increment duration by 500ms for each project
+}
+---
+
+<section class="bg-primary">
+  <div class="px-8 2xl:max-w-7xl mx-auto py-32">
+    <div class="space-y-2">
+      <!-- Section Title and Decorative Elements -->
+      <div
+        class="h-0.5 bg-secondary"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
+      </div>
+      <h3
+        class="text-secondary text-base font-medium"
+        data-aos="fade-up"
+        data-aos-duration="1500"
+      >
+        <span>My</span>
+        <span class="font-bold">Writings</span>
+      </h3>
+    </div>
+
+    <ul
+      class="mx-auto grid grid-cols-1 sm:grid-cols-2 text-secondary md:grid-cols-3 lg:grid-cols-4 items-start gap-6 mt-32"
+      role="list"
+    >
+      {
+        otherprojects.map((project, index) => (
+          <li
+            class="flow-root h-full"
+            data-aos="fade-up"
+            data-aos-duration={calculateAosDuration(index)}
+          >
+            <a href={project.url}>
+              <div class="h-full flex flex-col justify-between">
+                <div>
+                  <p class="group-hover:text-secondary/70 text-secondary text-9xl font-black lg:rotate-90 xl:-translate-x-28 lg:-translate-x-16 lg:mb-8 xl:mb-0">
+                    0{index + 1}.
+                  </p>
+                  <p class="italic shrink-0">{project.title}</p>
+                  <p class="text-base mt-3 leading-relaxed">
+                    {project.description}
+                  </p>
+                </div>
+                <div>
+                  <p class="mt-3 text-base font-semibold">
+                    Learn more &nbsp; ↗
+                  </p>
+                </div>
+              </div>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
